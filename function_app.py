@@ -38,9 +38,9 @@ def analyze_number(num):
     try:
         num_int = int(num)
     except ValueError:
-        return f'{{"error":"please enter a valid whole number"}}'
+        return {"error":"please enter a valid whole number"}
     if num_int <= 0:
-        return f'{{"error":"please enter a number greater than 0"}}'
+        return {"error":"please enter a number greater than 0"}
     digit_sum = 0
     perfect_sum = 0
     is_prime = True
@@ -51,7 +51,7 @@ def analyze_number(num):
         is_prime = False
     elif num_int > 2:
         for i in range(3, int(num_int**0.5) + 1):
-            if num_int % 1 == 0:
+            if num_int % i == 0:
                 is_prime = False
     for digit in num_str:
         digit_sum += int(digit)
