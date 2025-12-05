@@ -2,6 +2,7 @@ import azure.functions as func
 import datetime
 import json
 import logging
+import math
 
 app = func.FunctionApp()
 
@@ -46,6 +47,7 @@ def analyze_number(num):
     is_prime = True
     is_odd = (num % 2 != 0)
     is_perfect = False
+    is_triangular = False
     num_str = str(num_int)
     if num_int > 2 and num_int % 2 == 0:
         is_prime = False
@@ -61,12 +63,17 @@ def analyze_number(num):
                 perfect_sum += i
         if perfect_sum == num_int:
             is_perfect = True
+    k = (-1 + math.isqrt(1 + 8 * num_int)) / 2
+    if k.is_integer():
+        is_triangular = True
+
 
     response = {
         "sum_of_digits":digit_sum,
         "is_prime":is_prime,
         "is_odd":is_odd,
-        "is_perfect":is_perfect
+        "is_perfect":is_perfect,
+        "is_triangular":is_triangular
     }
 
     return response
