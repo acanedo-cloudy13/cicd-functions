@@ -1,7 +1,0 @@
-{
-    "github_username": "acanedo-cloudy13",
-    "repository": "cicd-functions",
-    "token": "<here>",
-    "function_app_name": "cicdfunction",
-    "task2_function_endpoint": "https://cicdfunction-htetd8a2gwesgxap.eastus-01.azurewebsites.net/api/http_trigger"
-}
